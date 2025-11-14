@@ -1,19 +1,29 @@
-def signup():
-    username = input("Create username: ")
-    password = input("Create password: ")
-    return username, password
+function signup(userName) {
+    let users = ["pavani", "sravanthi", "likhitha", "pravalika"];
 
+    if (users.includes(userName)) {
+        return "User Already Registered, Please Login";
+    } else {
+        users.push(userName);
+        return "Signup Successful, Please Login";
+    }
+}
 
-def login(saved_username, saved_password):
-    username = input("Enter username: ")
-    password = input("Enter password: ")
+function login(userName, password) {
+    let users = ["pavani", "sravanthi", "likhitha", "pravalika"];
 
-    if username == saved_username and password == saved_password:
-        print("Login successful!")
-    else:
-        print("Login failed! Incorrect username or password.")
+    if (users.includes(userName)) {
+        if (password === "Emp@123") {
+            return "Login Successful...";
+        } else {
+            return "Wrong Password....";
+        }
+    } else {
+        return "User Not Found, Please Signup";
+    }
+}
 
-
-# --- Main Program ---
-u, p = signup()
-login(u, p)
+console.log(signup("Pravalika"));  
+console.log(login("pavani", "Emp@123")); 
+console.log(login("pavani", "1234"));   
+console.log(login("hima", "Emp@123"));   
